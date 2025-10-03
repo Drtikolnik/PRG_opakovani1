@@ -15,4 +15,11 @@ public interface IStreamingService {
     public void stop();
 
     public boolean prehrava();
+
+    public boolean isPrehravani();
+
+    public String getNazev();
+    public int getSpusteno();
+
+
 }

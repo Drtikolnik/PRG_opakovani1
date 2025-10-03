@@ -1,9 +1,7 @@
-/**
- * Třída Spotify implementuje rozhraní IStreamingService a poskytuje
- * konkrétní implementace metod pro přehrávání, pauzu a zastavení obsahu.
- */
 class Spotify implements IStreamingService {
     private boolean prehravani;
+    private String nazev = "Spotify";
+    private int spusteno;
 
     /**
      * Přehrává zadaný titul na Spotify.
@@ -14,6 +12,7 @@ class Spotify implements IStreamingService {
     public void prehrat(String nazevTitulu) {
         prehravani = true;
         System.out.println("Přehrávání na Spotify: " + nazevTitulu);
+        spusteno++;
     }
 
     /**
@@ -29,4 +28,16 @@ class Spotify implements IStreamingService {
     public boolean prehrava() {
         return prehravani;
     }
+
+    public boolean isPrehravani() {
+        return prehravani;
+    }
+
+    public String getNazev() {
+        return nazev;
+    }
+    public int getSpusteno() {
+        return spusteno;
+    }
+
 }

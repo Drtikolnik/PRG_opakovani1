@@ -16,7 +16,10 @@ public class Main {
             System.out.println("5. Vypnout všechna zařízení");
             System.out.println("6. Přehrát na všech službách");
             System.out.println("7. Ovládání termostatu");
-            System.out.println("8. Konec");
+            System.out.println("8. Vypsat vše zaplé");
+            System.out.println("9. Změnit název zařízení");
+            System.out.println("10. Vypsat statistiku");
+            System.out.println("11. Konec");
             System.out.println("********************************************************************************************************************************");
             System.out.print("Vyberte možnost: ");
 
@@ -49,6 +52,15 @@ public class Main {
                     asistent.ovladaniTermostatu();
                     break;
                 case 8:
+                    asistent.vypisVsechnyZaple();
+                    break;
+                case 9:
+                    asistent.zmenNazev();
+                    break;
+                case 10:
+                    asistent.statistika();
+                    return;
+                case 11:
                     System.out.println("Konec programu.");
                     return;
                 default:

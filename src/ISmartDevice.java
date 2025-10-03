@@ -18,4 +18,12 @@ public interface ISmartDevice {
      * @return Řetězec reprezentující aktuální stav zařízení.
      */
     public String stav();
+
+    public String getNazev();
+
+    public boolean isZapnuto();
+
+    public void setNazev(String nazev);
+    public void setZapnuto(boolean zapnuto);
+    public int getSpusteno();
 }

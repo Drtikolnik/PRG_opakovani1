@@ -1,18 +1,18 @@
-public class Netflix implements IStreamingService {
+public class E621 implements IStreamingService {
     private boolean prehravani;
-    private String nazev = "Netflix";
+    private String nazev = "e621";
     private int spusteno;
     @Override
     public void prehrat(String nazevTitulu) {
         prehravani = true;
-        System.out.println("Přehrávání na Netflixu: " + nazevTitulu);
+        System.out.println("Přehrávání na e621: " + nazevTitulu);
         spusteno++;
     }
 
-      @Override
+    @Override
     public void stop() {
         prehravani = false;
-        System.out.println("Netflix přehrávání ukončeno.");
+        System.out.println("e621 přehrávání ukončeno.");
     }
 
     @Override

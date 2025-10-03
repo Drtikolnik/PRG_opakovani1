@@ -51,6 +51,12 @@ public class DomaciAsistent {
      * Odebere chytré zařízení ze seznamu spravovaných zařízení.
      */
     public void odeberZarizeni() {
+        System.out.println("Jaké zařízení chceš odebrat?");
+        for (ISmartDevice z : zarizeni) {
+            System.out.println(z.toString());
+        }
+        String nazev = scanner.nextLine();
+        zarizeni.removeIf(z -> z.getNazev().equals(nazev));
 
     }
 
@@ -118,6 +124,77 @@ public class DomaciAsistent {
         }
         System.out.println("Termostat s názvem " + nazev + " nebyl nalezen.");
     }
+
+    public void vypisVsechnyZaple() {
+        System.out.println("Seznam zaplých zařízení:");
+        for (ISmartDevice z : zarizeni) {
+            if (z.isZapnuto()) {
+                System.out.println(z.toString());
+            }
+        }
+        System.out.println("Seznam zaplých služeb:");
+        for (IStreamingService s : sluzby) {
+            if (s.isPrehravani()) {
+                System.out.println(s.getNazev());
+            }
+        }
+    }
+
+    public void zmenNazev() {
+        System.out.println("Jaké zařízení chceš CHANGED?");
+        for (ISmartDevice z : zarizeni) {
+            System.out.println(z.toString());
+        }
+        String nazev = scanner.nextLine();
+        System.out.println("Na jaké jméno chceš CHANGED?");
+        String novyNazev = scanner.nextLine();
+        for (ISmartDevice z : zarizeni) {
+            if (z.getNazev().equals(nazev)) {
+                z.setNazev(novyNazev);
+            }
+        }
+    }
+
+
+    public void statistika(){
+        int nejviceSpusteni = 0;
+        ISmartDevice nejviceSpusteniZ = null;
+        for (ISmartDevice z : zarizeni) {
+            if (nejviceSpusteniZ == null || z.getSpusteno() > nejviceSpusteniZ.getSpusteno()) {
+                nejviceSpusteniZ = z;
+            }
+        }
+        IStreamingService nejviceSpusteniS = null;
+        for (IStreamingService s : sluzby) {
+            if (nejviceSpusteniS == null || s.getSpusteno() > nejviceSpusteniS.getSpusteno()) {
+                nejviceSpusteniS = s;
+            }
+        }
+
+        if(nejviceSpusteniZ.getSpusteno() > nejviceSpusteniS.getSpusteno()) {
+            System.out.println("Nejvíce bylo spuštěno zařízení " +nejviceSpusteniZ.getNazev()+ " a bylo spuštěno " +nejviceSpusteniZ.getSpusteno()+ "x");
+        }else{
+            System.out.println("Nejvíce bylo spuštěno zařízení " +nejviceSpusteniS.getNazev()+ " a bylo spuštěno " +nejviceSpusteniS.getSpusteno()+ "x");
+        }
+
+        //----SPUSTENO DOHROMADY
+        int spustenoDohromady = 0;
+        for (ISmartDevice z : zarizeni) {
+            if (z.isZapnuto()) {
+                spustenoDohromady++;
+            }
+        }
+        for (IStreamingService s : sluzby) {
+            if (s.isPrehravani()) {
+                spustenoDohromady++;
+            }
+        }
+        System.out.println("Zařízení byla puštěna dohromady " +spustenoDohromady+ "x");
+
+
+
+    }
+
 
 }
 
