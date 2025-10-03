@@ -7,7 +7,8 @@ public class Main {
         DomaciAsistent asistent = new DomaciAsistent(scanner);
 
         while (true) {
-            System.out.println("\n--- Domácí Asistent Menu ---");
+            System.out.println("********************************************************************************************************************************");
+            System.out.println("--- Domácí Asistent Menu ---");
             System.out.println("1. Přidat nové zařízení");
             System.out.println("2. Odebrat zařízení");
             System.out.println("3. Vypisovat zařízení");
@@ -16,10 +17,14 @@ public class Main {
             System.out.println("6. Přehrát na všech službách");
             System.out.println("7. Ovládání termostatu");
             System.out.println("8. Konec");
+            System.out.println("********************************************************************************************************************************");
             System.out.print("Vyberte možnost: ");
+
 
             int volba = scanner.nextInt();
             scanner.nextLine(); // consume newline
+
+
 
             switch (volba) {
                 case 1:
@@ -49,6 +54,13 @@ public class Main {
                 default:
                     System.out.println("Neplatná volba, zkuste to znovu.");
             }
+            System.out.println("------------------------");
         }
+
+
+
+
+
+
     }
 }

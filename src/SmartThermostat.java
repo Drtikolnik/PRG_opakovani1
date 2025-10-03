@@ -46,9 +46,9 @@ class SmartThermostat implements ISmartDevice {
     @Override
     public String stav() {
         if (zapnuto) {
-            return "zapnuto";
+            return " zapnuto";
         } else {
-            return "vypnuto";
+            return " vypnuto";
         }
     }
 
@@ -62,4 +62,18 @@ class SmartThermostat implements ISmartDevice {
         System.out.println("Teplota nastavena na " + teplota + "°C.");
     }
 
+    public String toString(){
+        return nazev + stav();
+    }
+
+
+    public String getNazev() {
+        return nazev;
+    }
+    public boolean isZapnuto() {
+        return zapnuto;
+    }
+    public double getTeplota() {
+        return teplota;
+    }
 }
