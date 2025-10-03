@@ -16,6 +16,7 @@ public class DomaciAsistent {
         this.scanner = scanner;
         sluzby.add(new Netflix());
         sluzby.add(new Spotify());
+        sluzby.add(new E621());
     }
 
     /**
@@ -183,14 +184,10 @@ public class DomaciAsistent {
         //----SPUSTENO DOHROMADY
         int spustenoDohromady = 0;
         for (ISmartDevice z : zarizeni) {
-            if (z.isZapnuto()) {
-                spustenoDohromady++;
-            }
+            spustenoDohromady = spustenoDohromady + z.getSpusteno();
         }
         for (IStreamingService s : sluzby) {
-            if (s.isPrehravani()) {
-                spustenoDohromady++;
-            }
+            spustenoDohromady = spustenoDohromady + s.getSpusteno();
         }
         System.out.println("Zařízení byla puštěna dohromady " +spustenoDohromady+ "x");
 
