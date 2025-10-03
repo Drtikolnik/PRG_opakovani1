@@ -172,10 +172,13 @@ public class DomaciAsistent {
         }
 
         if(nejviceSpusteniZ.getSpusteno() > nejviceSpusteniS.getSpusteno()) {
-            System.out.println("Nejvíce bylo spuštěno zařízení " +nejviceSpusteniZ.getNazev()+ " a bylo spuštěno " +nejviceSpusteniZ.getSpusteno()+ "x");
-        }else{
-            System.out.println("Nejvíce bylo spuštěno zařízení " +nejviceSpusteniS.getNazev()+ " a bylo spuštěno " +nejviceSpusteniS.getSpusteno()+ "x");
+            System.out.println("Nejvíce bylo spuštěno " +nejviceSpusteniZ.getNazev()+ ", a bylo spuštěno " +nejviceSpusteniZ.getSpusteno()+ "x");
+        }else if(nejviceSpusteniZ.getSpusteno() < nejviceSpusteniS.getSpusteno()){
+            System.out.println("Nejvíce bylo spuštěno " +nejviceSpusteniS.getNazev()+ ", a bylo spuštěno " +nejviceSpusteniS.getSpusteno()+ "x");
+        }else if(nejviceSpusteniZ.getSpusteno() == nejviceSpusteniS.getSpusteno()) {
+            System.out.println("Nejvíce byla spuštěna " +nejviceSpusteniZ.getNazev()+ " a " +nejviceSpusteniS.getNazev()+ ", a byla spuštěna " +nejviceSpusteniS.getSpusteno()+ "x");
         }
+
 
         //----SPUSTENO DOHROMADY
         int spustenoDohromady = 0;
